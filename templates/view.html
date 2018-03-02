@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>View</title>
+        <link rel="stylesheet" types="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+        <!-- <script rel="text/javascript" src="script.js"></script> -->
+    </head>
+    <body>
+        <div id='container'>
+            {% for user in user %}
+            <h1>User {{ user['id'] }}</h1>
+            <p>Full Name: {{ user['full_name'] }}</p>
+            <p>Email: {{ user['email'] }}</p>
+            <p>Created at: {{ user['created_at'] }}</p>
+            <p><a href="users/"{{ user['id'] }}"/edit">Edit</a> | <a href="/users/{{ user['id'] }}/destroy">Delete</a></p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
