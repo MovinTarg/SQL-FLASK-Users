@@ -21,7 +21,7 @@ def new_user():
 
 @app.route('/users/<id>')
 def show_user(id):
-    query = "SELECT CONCAT(first_name, ' ', last_name) AS full_name, email, created_at FROM users WHERE users.id = :id"
+    query = "SELECT users.id, CONCAT(first_name, ' ', last_name) AS full_name, email, created_at FROM users WHERE users.id = :id"
     data = {
         'id': id
     }

@@ -14,7 +14,7 @@
             <p>Full Name: {{ user['full_name'] }}</p>
             <p>Email: {{ user['email'] }}</p>
             <p>Created at: {{ user['created_at'] }}</p>
-            <p><a href="users/"{{ user['id'] }}"/edit">Edit</a> | <a href="/users/{{ user['id'] }}/destroy">Delete</a></p>
+            <p><a href="users/{{ user['id'] }}/edit">Edit</a> | <a href="/users/{{ user['id'] }}/destroy">Delete</a></p>
             {% endfor %}
         </div>
     </body>
