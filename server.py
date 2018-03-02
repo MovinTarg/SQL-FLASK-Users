@@ -25,18 +25,19 @@ def show_user(id):
     data = {
         'id': id
     }
-    user = mysql.query_db(query, data)
-    return render_template('view.html', user = user)
+    users = mysql.query_db(query, data)
+    # print user
+    return render_template('view.html', user = users[0])
 #GET - calls the show method to display the info for a particular user with given id. This will need a template.
 
 @app.route('/users/<id>/edit')
 def edit_user(id):
-    query = "SELECT first_name, last_name, email FROM users WHERE users.id = :id"
+    query = "SELECT * FROM users WHERE users.id = :id"
     data = {
         'id': id
     }
-    user = mysql.query_db(query, data)
-    return render_template('edit.html', user = user)
+    users = mysql.query_db(query, data)
+    return render_template('edit.html', user = users[0])
 #GET request - calls the edit method to display a form allowing users to edit an existing user with the given id. This will need a template.
 
 @app.route('/users/create', methods=['POST'])
@@ -78,8 +79,8 @@ def create_user():
         return redirect('/')
     else:
         flash("Successfully Registered!")
-        mysql.query_db(query, data)
-        return redirect ('/users/<id>')
+        user_id = mysql.query_db(query, data)
+        return redirect ('/users/'+str(user_id))
 #POST - calls the create method to insert a new user record into our database. This POST should be sent from the form on the page /users/new. Have this redirect to /users/<id> once created.
 
 @app.route('/users/<id>/destroy')
@@ -132,8 +133,8 @@ def update_user(id):
         return redirect('/')
     else:
         flash("Successfully Updated!")
-        mysql.query_db(query, data)
-        return redirect ('/users/<id>')
+        user_id = mysql.query_db(query, data)
+        return redirect ('/users/'+str(user_id))
 #POST - calls the update method to process the submitted form sent from /users/<id>/edit. Have this redirect to /users/<id> once updated.
 
 app.run(debug=True)
