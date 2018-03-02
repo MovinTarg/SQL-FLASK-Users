@@ -16,7 +16,7 @@
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
-            <h2>Edit User</h2>
+            <h1>Edit User</h1>
             <form action='/users/<id>' method='POST'>
                 <label for="first_name">First Name:
                     <input type="text" name="first_name" id="first_name">
@@ -29,7 +29,7 @@
                 </label>
                 <input type="submit" value="Update">
             </form>
-            <a href="/users/{{ user['id'] }}">Show</a><a href='/users'>Go Back</a>
+            <p><a href="/users/{{ user['id'] }}">Show</a> | <a href='/users'>Go Back</a></p>
         </div>
     </body>
 </html>

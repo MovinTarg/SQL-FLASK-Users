@@ -6,3 +6,25 @@
     width: 970px;
     padding: 15px;
 }
+h1 {
+    margin: 15px;
+}
+table {
+    width: 100%;
+    border: 1px solid black;
+    background-color: lightgray;
+}
+tr {
+    padding-top: 5px;
+    border: 1px solid black;
+}
+th {
+    padding: 5px;
+    background-color: grey;
+}
+.actions {
+    text-align: center;
+}
+td a {
+    padding-right: 10px;
+}
